@@ -23,6 +23,7 @@ const GAME_PATHS: Record<string, string[]> = {
     `${process.env.HOME}/Applications/Subway Builder.AppImage`,
     `${process.env.HOME}/.local/bin/Subway Builder.AppImage`,
     '/usr/local/bin/Subway Builder.AppImage',
+    '/home/deck/Documents/Subway Builder-1.2.0.AppImage'
   ],
 };
 
