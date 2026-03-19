@@ -78,8 +78,8 @@ export function ExamplePanel() {
       DEEP_BORE: 4.5,
       STANDARD_TUNNEL: 2.0,
       CUT_AND_COVER: 1.0,
-      AT_GRADE: 1,
-      ELEVATED: 1,
+      AT_GRADE: 0.3,
+      ELEVATED: 0.8,
     },
     WATER_MULTIPLIERS: {
       DEEP_BORE: 1.44444,
@@ -162,7 +162,7 @@ export function ExamplePanel() {
   }, []);
 
   const resetConstructionConstants = () => {
-    const defaults = cloneConstructionCosts(initialConstructionCostsRef.current ?? defaultConstructionCosts);
+    const defaults = cloneConstructionCosts(defaultConstructionCosts);
     setConstructionCosts(defaults);
     api.modifyConstants({ CONSTRUCTION_COSTS: defaults });
     api.ui.showNotification('Construction constants reset to normal.', 'success');
@@ -358,21 +358,21 @@ export function ExamplePanel() {
 
 
         <div className="grid gap-2 mt-2">
-          <div>
-            <div className="text-xs font-medium">Elevation Multipliers</div>
-            
+          <div className="text-xs font-medium">Elevation Multipliers</div>
 
-            <div className="flex gap-2 mt-1">
-              <div className="grid grid-cols-1 gap-2">
-                <div className="text-xs font-medium text-muted-foreground">At Grade</div>
+          <div className="flex gap-2 mt-1">
+            <div className="grid grid-cols-1 gap-2">
+                <div className="text-xs font-medium text-muted-foreground">Deep Bore</div>
                 <Input
                   type="number"
-                  value={constructionCosts.ELEVATION_MULTIPLIERS?.AT_GRADE ?? ''}
-                  onChange={(e: any) => setNestedElevationValue('AT_GRADE', e.target.value)}
+                  value={constructionCosts.ELEVATION_MULTIPLIERS?.DEEP_BORE ?? ''}
+                  onChange={(e: any) => setNestedElevationValue('DEEP_BORE', e.target.value)}
                   className="w-full text-xs"
                   step="0.1"
                 />
-              </div>
+            </div>           
+
+
 
               <div className="grid grid-cols-1 gap-2">
                 <div className="text-xs font-medium text-muted-foreground">Standard Tunnel</div>
@@ -386,30 +386,6 @@ export function ExamplePanel() {
               </div>
 
               <div className="grid grid-cols-1 gap-2">
-                <div className="text-xs font-medium text-muted-foreground">Elevated</div>
-                <Input
-                  type="number"
-                  value={constructionCosts.ELEVATION_MULTIPLIERS?.ELEVATED ?? ''}
-                  onChange={(e: any) => setNestedElevationValue('ELEVATED', e.target.value)}
-                  className="w-full text-xs"
-                  step="0.1"
-                />
-              </div>
-
-            </div>
-          </div>
-          <div className="flex gap-2 mt-1">
-            <div className="grid grid-cols-1 gap-2">
-                <div className="text-xs font-medium text-muted-foreground">Deep Bore</div>
-                <Input
-                  type="number"
-                  value={constructionCosts.ELEVATION_MULTIPLIERS?.DEEP_BORE ?? ''}
-                  onChange={(e: any) => setNestedElevationValue('DEEP_BORE', e.target.value)}
-                  className="w-full text-xs"
-                  step="0.1"
-                />
-            </div>
-            <div className="grid grid-cols-1 gap-2">
                 <div className="text-xs font-medium text-muted-foreground">Cut and Cover</div>
                 <Input
                   type="number"
@@ -419,6 +395,36 @@ export function ExamplePanel() {
                   step="0.1"
                 />
             </div>
+
+
+            </div>
+
+
+
+
+            <div className="flex gap-2 mt-1">
+              <div className="grid grid-cols-1 gap-2">
+                <div className="text-xs font-medium text-muted-foreground">At Grade</div>
+                <Input
+                  type="number"
+                  value={constructionCosts.ELEVATION_MULTIPLIERS?.AT_GRADE ?? ''}
+                  onChange={(e: any) => setNestedElevationValue('AT_GRADE', e.target.value)}
+                  className="w-full text-xs"
+                  step="0.1"
+                />
+              </div>
+
+
+              <div className="grid grid-cols-1 gap-2">
+                <div className="text-xs font-medium text-muted-foreground">Elevated</div>
+                <Input
+                  type="number"
+                  value={constructionCosts.ELEVATION_MULTIPLIERS?.ELEVATED ?? ''}
+                  onChange={(e: any) => setNestedElevationValue('ELEVATED', e.target.value)}
+                  className="w-full text-xs"
+                  step="0.1"
+                />
+              </div>
           </div>
         </div>
 
