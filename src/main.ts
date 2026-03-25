@@ -31,8 +31,8 @@ if (!api) {
           id: 'AddMoneyPanel',
           icon: 'DollarSign',
           title: 'AnyMoney',
-          defaultWidth: 300,
-          defaultHeight: 520,
+          defaultWidth: 900,
+          defaultHeight: 620,
           render: ExamplePanel,
 
       });
@@ -58,42 +58,7 @@ if (!api) {
       //     }
           
       //     console.log(`Route ${route.bullet || route.name || route.id}: ${stationCount} stations`);
-      // });
-      // api.modifyConstants({
-      //   CONSTRUCTION_COSTS: {
-      //     "TUNNEL": {
-      //       "SINGLE_MULTIPLIER": 0.75,
-      //       "QUAD_MULTIPLIER": 1.5
-      //     },
-      //     "STATION": {
-      //       "SINGLE_MULTIPLIER": 0.75,
-      //       "QUAD_MULTIPLIER": 1.5
-      //     },
-      //     "ELEVATION_MULTIPLIERS": {
-      //       "DEEP_BORE": 4.5,
-      //       "STANDARD_TUNNEL": 2.0,
-      //       "CUT_AND_COVER": 1.0,
-      //       "AT_GRADE": 0.3,
-      //       "ELEVATED": 0.8
-      //     },
-      //     "WATER_MULTIPLIERS": {
-      //       "DEEP_BORE": 1.44444,
-      //       "STANDARD_TUNNEL": 1.5,
-      //       "CUT_AND_COVER": 3.0,
-      //       "AT_GRADE": 10.0,
-      //       "ELEVATED": 2.5
-      //     },
-      //     "ELEVATION_THRESHOLDS": {
-      //       "DEEP_BORE": -100,
-      //       "STANDARD_TUNNEL": -24,
-      //       "CUT_AND_COVER": -10,
-      //       "AT_GRADE": -3,
-      //       "ELEVATED": 4.5
-      //     }
-      //   }
-      // });
-      
-
+  
       console.log(`${TAG} Initialized successfully.`);
     } catch (err) {
       console.error(`${TAG} Failed to initialize:`, err);
