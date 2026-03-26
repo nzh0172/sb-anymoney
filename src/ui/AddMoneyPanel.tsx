@@ -234,6 +234,11 @@ export function ExamplePanel() {
     api.ui.showNotification(`Added $${amount.toLocaleString()} to your budget!`, 'success');
   };
 
+  const handleSetMoney = (nextAmount: number, label: string) => {
+    api.actions.setMoney(nextAmount);
+    api.ui.showNotification(`Set budget to ${label}.`, 'success');
+  };
+
   const incrementAmount = () => {
     setAmountInput(String(amount + 100_000));
   };
@@ -465,10 +470,10 @@ export function ExamplePanel() {
       style={{ display: 'flex', gap: '1rem', alignItems: 'stretch' }}
     >
       <div className="flex flex-col gap-3" style={{ width: '280px', flexShrink: 0 }}>
-        <h3 className="text-sm font-medium">Top-up Expenses</h3>
+        <h3 className="text-sm font-medium">Budget</h3>
 
         <div className="text-xs text-muted-foreground">
-          Add money into your expenses budget.
+          Add money into your construction budget.
         </div>
         <div className="flex items-center gap-2">
           <Button
@@ -544,9 +549,18 @@ export function ExamplePanel() {
             1B
           </Button>
         </div>
-        <Button onClick={handleAddMoney}>
-          Add Money
-        </Button>
+        <div className='grid grid-cols-2 gap-2'>
+          <Button onClick={handleAddMoney}>
+            Add Amount
+          </Button>
+          <Button
+            onClick={() => handleSetMoney(amount, `$${amount.toLocaleString()}`)}
+          >
+            Set Amount
+          </Button>
+        </div>
+
+
       </div>
 
       <div className="border-l border-muted-foreground/20 pl-4" style={{ minWidth: 0, flex: 1 }}>
